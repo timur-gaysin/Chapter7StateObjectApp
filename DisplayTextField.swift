@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DisplayTextField: View {
     
-    @ObservedObject var creature: SongModel
+    @EnvironmentObject var creature: SongModel
     
     var body: some View {
         VStack{
@@ -29,12 +29,8 @@ struct DisplayTextField: View {
                 Text("Year: ")
                 Slider(value: $creature.year, in: 1900...2100, step: 1.0)
             }
-        }
+        }.environmentObject(SongModel())
     }
 }
 
-struct DisplayTextField_Previews: PreviewProvider {
-    static var previews: some View {
-        DisplayTextField(creature: SongModel())
-    }
-}
+

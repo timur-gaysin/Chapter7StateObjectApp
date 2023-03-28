@@ -18,14 +18,14 @@ struct ContentView: View {
             Text("Duration:  \(Int(song.duration))")
             Text("Year: \(Int(song.year))")
 
-            DisplayTextField(creature: song)
-        }
+            DisplayTextField()
+        }.environmentObject(song)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(song: SongModel())
     }
 }
 
